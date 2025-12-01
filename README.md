@@ -120,6 +120,8 @@ source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" m
 
 By completing these tasks, you will have an interactive Splunk dashboard that displays:
 
+<img width="1920" height="1107" alt="Final" src="https://github.com/user-attachments/assets/fd7cd6e4-4af4-425e-99b6-c157d2a030bf" />
+
 * Total web activity
 
 * Successful vs unsuccessful requests
