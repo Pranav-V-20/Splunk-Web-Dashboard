@@ -40,7 +40,7 @@ Goal: Provide a summary of overall web activity.
 * Content Title: Total Web Requests
 * Search Query:
 ```
-source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" 
+source="apache_logs.json" host="Webserver" sourcetype="_json" 
 | stats count AS "Total Web Requests"
 ```
 
@@ -50,7 +50,7 @@ source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json"
 * Content Title: Successful Response
 * Search Query:
 ```
-source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" method=GET status=200 
+source="apache_logs.json" host="Webserver" sourcetype="_json" method=GET status=200 
 | stats count AS "Successful Responses"
 ```
 
@@ -60,7 +60,7 @@ source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" m
 * Content Title: Client Errors
 * Search Query:
 ```
-source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" 
+source="apache_logs.json" host="Webserver" sourcetype="_json" 
 | where status>=400 and status<500 
 | stats count AS "Client Errors"
 ```
@@ -71,7 +71,7 @@ source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json"
 * Content Title: Server Errors (5xx)
 * Search Query:
 ```
-source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" 
+source="apache_logs.json" host="Webserver" sourcetype="_json" 
 | where status>=500 and status<600
 | stats count AS "Server Errors"
 ```
@@ -87,7 +87,7 @@ Goal: Summaries of URI and user access patterns.
 * Content Title: Top Requested URIs
 * Search Query:
 ```
-source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" 
+source="apache_logs.json" host="Webserver" sourcetype="_json" 
 | stats count AS "Hits" by uri
 ```
 
@@ -97,7 +97,7 @@ source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json"
 * Content Title: Top Users by IP Address
 * Search Query:
 ```
-source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" 
+source="apache_logs.json" host="Webserver" sourcetype="_json" 
 | stats count AS IP by ip
 ```
 ---
@@ -109,7 +109,7 @@ source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json"
 
 Search Query:
 ```
-source="apache_mixed_access_full (1).json" host="webserver" sourcetype="_json" method=GET
+source="apache_logs.json" host="Webserver" sourcetype="_json" method=GET
 | table ip
 | iplocation ip
 | stats count by Country
